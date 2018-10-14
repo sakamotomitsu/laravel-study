@@ -10,7 +10,7 @@
 @section('content')
   <table>
     <tr>
-      <td>Data</td>
+      <th>Data</th>
     </tr>
     @foreach($items as $item)
       <tr>

@@ -8,11 +8,21 @@
 @endsection
 
 @section('content')
+  @if( count($errors) > 0 )
+    <div>
+      <ul>
+        @foreach( $errors -> all() as $error )
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+    </div>
+  @endif
+
   <table>
-    <form action="/public/person/add" method="post">
-      {{ csrf_field()  }}
+    <form action="/public/board/add" method="post">
+      {{ csrf_field() }}
       <tr>
-        <th>person id;</th>
+        <th>person id:</th>
         <td><input type="number" name="person_id"></td>
       </tr>
       <tr>
