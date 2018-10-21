@@ -15,11 +15,18 @@ class Person extends Model
   }
 
   /* has One */
-  public function board()
+  /*public function board()
   {
     return $this -> hasOne('App\Board');
-  }
+  }*/
   /* has One */
+
+  /* has Many */
+  public function boards()
+  {
+    return $this -> hasMany('App\Board');
+  }
+  /* has Many */
 
   /*
   public function scopeNameEqual( $query, $str )
