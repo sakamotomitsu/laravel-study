@@ -14,6 +14,13 @@ class Person extends Model
     return $this -> id.':'.$this -> name.'('.$this -> age.')';
   }
 
+  /* has One */
+  public function board()
+  {
+    return $this -> hasOne('App\Board');
+  }
+  /* has One */
+
   /*
   public function scopeNameEqual( $query, $str )
   {
