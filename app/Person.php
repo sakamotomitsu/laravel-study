@@ -22,10 +22,10 @@ class Person extends Model
   /* has One */
 
   /* has Many */
-  /*public function boards()
+  public function boards()
   {
     return $this -> hasMany('App\Board');
-  }*/
+  }
   /* has Many */
 
   /* belongsTo 外部から主へ Board.phpへ */

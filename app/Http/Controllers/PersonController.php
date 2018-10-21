@@ -10,9 +10,15 @@ class PersonController extends Controller
     //
   public function index(Request $request)
   {
-    $items = Person::all();
+    /*$items = Person::all();
 
-    return view('person.index', ['items' => $items]);
+    return view('person.index', ['items' => $items]);*/
+
+    /* has-doesnthave レコードがあるかないか-hasMany */
+    $hasItems = person::has('boards') -> get();
+    $noItems = person::doesntHave('boards') -> get();
+    $param =['hasItems' => $hasItems, 'noItems' => $noItems];
+    return view('person.index', $param);
   }
 
   public function find(Request $request)
