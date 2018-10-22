@@ -267,4 +267,9 @@ EOF;
 
   }
 
+  public function rest(Request $request)
+  {
+    return view('hello.rest');
+  }
+
 }
