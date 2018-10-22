@@ -7,7 +7,7 @@
     </tr>
     <tr>
       <th>url:</th>
-      <td><input type="text" name="url" value="{{old('url')}}}"></td>
+      <td><input type="text" name="url" value="{{old('url')}}"></td>
     </tr>
     <tr>
       <th></th>
