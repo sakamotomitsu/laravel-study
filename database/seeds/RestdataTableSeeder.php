@@ -27,7 +27,7 @@ class RestdataTableSeeder extends Seeder
       $restdata = new Restdata();
       $restdata -> fill($param) -> save();
 
-      param = [
+      $param = [
         'message' => 'MSN Japan',
         'url' => 'https://www.msn.com/ja-jp',
       ];
