@@ -285,7 +285,7 @@ EOF;
     $msg = $request -> input();
     $request -> session() -> put('msg', $msg);
 
-    return redirect('hello/session');
+    return redirect('/hello/session');
   }
 
 }
