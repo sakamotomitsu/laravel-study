@@ -282,7 +282,8 @@ EOF;
 
   public function ses_put(Request $request)
   {
-    $msg = $request -> input();
+    //$msg = $request -> input('input');
+    $msg = $request -> input;
     $request -> session() -> put('msg', $msg);
 
     return redirect('/hello/session');
