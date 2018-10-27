@@ -159,9 +159,14 @@ EOF;
 
     /* paginate */
     //$items = DB::table('people') -> simplePaginate(5);
-    $items = Person::orderBy('age', 'asc') -> simplePaginate(5);
-    return view('hello.index', ['items' => $items]);
+    /*$items = Person::orderBy('age', 'asc') -> simplePaginate(5);
+    return view('hello.index', ['items' => $items]);*/
+    /* ソート変更 */
+    $sort = $request -> sort;
+    $items = Person::orderBy($sort, 'asc') -> simplePaginate(5);
+    $param = ['items' => $items, 'sort' => $sort];
 
+    return view('hello.index', $param);
   }
 
   public function post( Request $request )
