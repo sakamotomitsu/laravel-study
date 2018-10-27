@@ -30,7 +30,9 @@ Route::get('/', function () {
 //Route::get( 'hello/{id?}', 'HelloController@index' );
 
 //クエリー文字
-Route::get( 'hello', 'HelloController@index' );
+//Route::get( 'hello', 'HelloController@index' );
+/* Auth 特定ページの保護 */
+Route::get( 'hello', 'HelloController@index' ) -> middleware('auth');
 
 Route::post( 'hello', 'HelloController@post' );
 
