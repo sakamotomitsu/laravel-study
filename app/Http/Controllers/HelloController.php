@@ -159,7 +159,7 @@ EOF;
 
     /* paginate */
     //$items = DB::table('people') -> simplePaginate(5);
-    $items = Person::simplePaginate(5);
+    $items = Person::orderBy('age', 'asc') -> simplePaginate(5);
     return view('hello.index', ['items' => $items]);
 
   }
