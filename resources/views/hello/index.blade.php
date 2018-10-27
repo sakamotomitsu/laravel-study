@@ -15,6 +15,11 @@
 @endsection
 
 @section('content')
+  @if(Auth::check())
+    <p>USER:{{ $user -> name.'('.$user -> email .')' }}</p>
+  @else
+    <p>※ログインしていません(<a href="/public/login">ログイン</a>|<a href="/public/regster">登録</a>)</p>
+  @endif
 
   <table>
     <tr>

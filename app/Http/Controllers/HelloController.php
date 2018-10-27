@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Validator;
 use App\Person;
+use Illuminate\Support\Facades\Auth;
 
 
 /*  global $head, $style, $body, $end;
@@ -162,10 +163,16 @@ EOF;
     /*$items = Person::orderBy('age', 'asc') -> simplePaginate(5);
     return view('hello.index', ['items' => $items]);*/
     /* ソート変更 */
-    $sort = $request -> sort;
+    /*$sort = $request -> sort;
     //$items = Person::orderBy($sort, 'asc') -> simplePaginate(5);
     $items = Person::orderBy($sort, 'asc') -> paginate(5);
-    $param = ['items' => $items, 'sort' => $sort];
+    $param = ['items' => $items, 'sort' => $sort];*/
+
+    /* Auth-Deth */
+    $user = Auth::user();
+    $sort = $request -> sort;
+    $items = Person::orderBy($sort, 'asc') -> simplePaginate(5);
+    $param = ['items' => $items, 'sort' => $sort, 'user' => $user];
 
     return view('hello.index', $param);
   }
