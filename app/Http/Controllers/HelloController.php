@@ -163,7 +163,8 @@ EOF;
     return view('hello.index', ['items' => $items]);*/
     /* ソート変更 */
     $sort = $request -> sort;
-    $items = Person::orderBy($sort, 'asc') -> simplePaginate(5);
+    //$items = Person::orderBy($sort, 'asc') -> simplePaginate(5);
+    $items = Person::orderBy($sort, 'asc') -> paginate(5);
     $param = ['items' => $items, 'sort' => $sort];
 
     return view('hello.index', $param);
