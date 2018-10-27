@@ -308,4 +308,26 @@ EOF;
     return redirect('/hello/session');
   }
 
+  /* Auth-login */
+  public function getAuth(Request $request)
+  {
+    $param = ['message' => 'ログインしてください'];
+
+    return view('hello.auth', $param);
+  }
+
+  public function postAuth(Request $request)
+  {
+    $email = $request -> email;
+    $pass = $request -> password;
+    if( Auth::attempt(['email' => $email, 'password' => $pass]) ){
+      $msg = 'ログインしました('.Auth::user() -> name .')';
+    }
+    else{
+      $msg = 'ログインに失敗しました';
+    }
+
+    return view('hello.auth', ['message' => $msg]);
+  }
+
 }
