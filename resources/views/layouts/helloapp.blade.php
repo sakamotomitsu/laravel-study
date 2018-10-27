@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>@yield('title')</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/app.css">
   <style>
     body {
       font-size: 16pt;
