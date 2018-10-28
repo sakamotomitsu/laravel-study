@@ -26,7 +26,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 $factory->define(App\Person::class, function (Faker $faker){
   return [
     'name' => $faker -> name,
-    'email' => $faker -> safeEmail,
+    'mail' => $faker -> safeEmail,
     'age' => random_int(1,99),
   ];
 });

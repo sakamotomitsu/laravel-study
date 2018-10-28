@@ -10,6 +10,7 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\User;
+use App\Person;
 
 class HelloTest extends TestCase
 {
@@ -29,7 +30,7 @@ class HelloTest extends TestCase
         $this -> assertLessThan(100, $n);
         */
 
-        $this -> assertTrue(true);
+        /*$this -> assertTrue(true);
 
         $response = $this -> get('/');
         $response -> assertStatus(200);
@@ -42,6 +43,35 @@ class HelloTest extends TestCase
         $response -> assertStatus(200);
 
         $response = $this -> get('/no_route');
-        $response -> assertStatus(404);
+        $response -> assertStatus(404);*/
+
+        /* DB */
+        //ダミーで利用するデータ
+        factory(User::class) -> create([
+          'name' => 'AAA',
+          'email' => 'BBB@CCC.com',
+          'password' => 'ABCABC',
+        ]);
+        factory(User::class, 10) -> create();
+
+        $this -> assertDatabaseHas('users', [
+          'name' => 'AAA',
+          'email' => 'BBB@CCC.com',
+          'password' => 'ABCABC',
+        ]);
+
+        //ダミーで利用するデータ
+        factory(Person::class) -> create([
+          'name' => 'XXX',
+          'mail' => 'YYY@ZZZ.com',
+          'age' => '123',
+        ]);
+        factory(Person::class, 10) -> create();
+
+        $this -> assertDatabaseHas('people', [
+          'name' => 'XXX',
+          'mail' => 'YYY@ZZZ.com',
+          'age' => '123',
+        ]);
     }
 }
