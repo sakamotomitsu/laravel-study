@@ -295,7 +295,7 @@ EOF;
   public function ses_get(Request $request)
   {
     $sesdata = $request -> session() -> get('msg');
-
+    
     return view('hello.session', ['session_data' => $sesdata]);
   }
 
